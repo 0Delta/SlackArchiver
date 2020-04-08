@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>slack log {{.Channel}}</title>
+    </head>
+    <body>
+      <h1>{{.Channel}}</h1>
+        <ul>
+        {{range $key, $val := .History}}
+          -- {{$key}} --<br />
+          {{range $val.Messages}}
+            <li>
+              {{.User}}
+              <br />
+              {{.Text}}
+              {{range .Attachments}}
+                {{.Text}}
+              {{end}}
+            </li>
+          {{end}}
+        {{end}}
+        </ui>
+    </body>
+</html>⏎
